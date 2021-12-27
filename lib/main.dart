@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int n = 0;
   Future onPressed(int n) async {
     final isolate = IsolateCalculate(n);
-    n = await isolate.isolateCalculate();
+    n = await isolate.isolate();
     setState(() {});
   }
 

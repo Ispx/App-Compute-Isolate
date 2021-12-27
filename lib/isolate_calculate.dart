@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 class IsolateCalculate {
   int? _n;
   IsolateCalculate(this._n);
-  Future<int> isolateCalculate() async {
+  Future<int> isolate() async {
     // compute<T,R>(funcaoTopLevel).
     //Q -> Tipo de valor de entrada.
     //R -> Tipo de valor de resultado.

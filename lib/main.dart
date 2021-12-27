@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:app_isolate_compute/isolate_calculate.dart';
+import 'package:app_isolate_compute/isolate_fibonacci.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,11 +32,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int n = 0;
-  Future onPressed(int n) async {
-    final isolate = IsolateCalculate(n);
-    this.n = await isolate.isolate();
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +61,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async => onPressed(Random().nextInt(50)),
+        onPressed: () async {
+          final isolate = IsolateFibonacci(Random().nextInt(50));
+          n = await isolate.isolate();
+          setState(() {});
+        },
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

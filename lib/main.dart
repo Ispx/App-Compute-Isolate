@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int n = 0;
   Future onPressed(int n) async {
     final isolate = IsolateCalculate(n);
-    n = await isolate.isolate();
+    this.n = await isolate.isolate();
     setState(() {});
   }
 
@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title + ' {n=$n}'),
+        title: Text(widget.title),
       ),
       body: Center(
         child: Column(
@@ -66,8 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async => onPressed(Random().nextInt(30)),
-        tooltip: 'Increment',
+        onPressed: () async => onPressed(Random().nextInt(50)),
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
